@@ -1,0 +1,19 @@
+curl -i -H "Accept: application/json" -H "Content-type: application/json" -X PUT -d '{“email”: "newemail@email.com"}' http://localhost:3000/api/users/110.json
+
+
+
+curl \
+-i \
+-H "Accept: application/json" \
+-H "Content-type: application/json" \
+-X DELETE \
+http://localhost:3000/api/users/94
+
+
+curl \
+-i \
+-H "Accept: application/json" \
+-H "Content-type: application/json" \
+-X PUT \
+-d '{"admin":"false"}' \
+http://localhost:3000/api/users/110
