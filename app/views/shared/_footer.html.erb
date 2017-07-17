@@ -1,0 +1,15 @@
+<footer class="footer">
+  <div class="container">
+    <% if !user_signed_in? %>
+     <span class="text-muted">Already have an account? - <%= link_to "Click here to log in", new_user_session_path %></span>
+    <% else %>
+     <%= link_to raw("<span class='glyphicon glyphicon-off' aria-hidden='true'></span>"), destroy_user_session_path, method: :delete %>
+
+     <!-- <button type="button" class="btn btn-default" aria-label="Left Align">
+       <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+     </button> -->
+
+
+    <% end %>
+  </div>
+</footer>
