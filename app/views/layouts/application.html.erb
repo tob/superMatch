@@ -11,6 +11,16 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+
+    <% if !user_signed_in? %>
+      <%= render 'users/show' %>
+    <% else %>
+
+      <%= render 'devise/registrations/new' %>
+      <%= render 'devise/sessions/new' %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
