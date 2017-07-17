@@ -1,1 +1,7 @@
 <h1>Show Teacher</h1>
+
+<ul class="list-group">
+<% User.all.each do |user| %>
+    <li class="list-group-item"><span class="badge">Upgrade</span><%= user.email %><li>
+<% end %>
+</ul>
