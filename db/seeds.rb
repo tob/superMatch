@@ -15,12 +15,27 @@ student10 = User.create!({email: "student10@supermatch.com", password: "student"
 student11 = User.create!({email: "student11@supermatch.com", password: "student", admin: false})
 
 teacher = User.create!({email: "teacher@supermatch.com", password: "testtest", admin: true})
+#
+# pair1 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[student1, student2])
+# pair2 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[student3, student4])
+# pair3 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[student5, student6])
+# pair4 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[student7, student8])
+# pair5 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[student9, student10,student11])
 
-pair1 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[student1, student2])
-pair2 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[student3, student4])
-pair3 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[student5, student6])
-pair4 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[student7, student8])
-pair5 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[student9, student10,student11])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # @students = []
