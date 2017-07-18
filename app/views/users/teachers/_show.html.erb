@@ -2,6 +2,13 @@
 
 <ul class="list-group">
 <% User.all.each do |user| %>
-    <li class="list-group-item"><span class="badge">Upgrade</span><%= user.email %><li>
+  <% if !user.admin == true %>
+
+    <li class="list-group-item" id="<%= user.id %>"><span class="badge"><a href="" class="upgrade_student">Upgrade</a></span><%= user.email %></li>
+
+    <% else %>
+    <li class="list-group-item list-group-item-info" id="<%= user.id %>"><span class="badge"><a href="" class="downgrade_teacher">Downgrade</a></span><%= user.email %></li>
+
+    <% end %>
 <% end %>
 </ul>

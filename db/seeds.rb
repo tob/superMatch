@@ -20,22 +20,22 @@ end
 #   User.all.each do |user|
 #     puts "#{divider} \n #{user.email} - #{user.encrypted_password} - #{user.admin} \n"
 #   end
-
-puts "*"*30
-print @students
-
-puts "*"*30
-@students << student1.id
-print @students
-
-
-puts "*"*30
-pair = @students.combination(2).to_a.sample
-print pair
-
-puts "*"* 50
-puts @students.length
-
+#
+# puts "*"*30
+# print @students
+#
+# puts "*"*30
+# @students << student1.id
+# print @students
+#
+#
+# puts "*"*30
+# pair = @students.combination(2).to_a.sample
+# print pair
+#
+# puts "*"* 50
+# puts @students.length
+#
 
 
 
