@@ -15,8 +15,8 @@ curl \
 -H "Accept: application/json" \
 -H "Content-type: application/json" \
 -X PUT \
--d '{"admin":"false"}' \
-http://localhost:3000/api/users/110
+-d '{"admin":"true"}' \
+http://localhost:3000/api/users/133
 
 
 
@@ -25,5 +25,5 @@ curl \
 -H "Accept: application/json" \
 -H "Content-type: application/json" \
 -X PUT \
--d '{"pair":"[[1,2],[3,4]]"}' \
+-d '{"pair":"[superMay]"}' \
 http://localhost:3000/api/teams/1
