@@ -14,4 +14,11 @@
     <% end %>
     <% end %>
 <% end %>
-</ul>
+
+<h2>Teams </h2>
+  <ul class="list-group">
+    <% Team.all.each do |team| %>
+      <li class="list-group-item" id="<%= team.id %>"><span class="badge"></span><%= team.pair %>
+      </li>
+    <% end %>
+  </ul>

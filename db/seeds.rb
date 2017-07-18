@@ -1,4 +1,5 @@
-User.delete_all
+User.destroy_all
+Team.destroy_all
 
 
 student1 = User.create!({email: "student@supermatch.com", password: "student", admin: false})
@@ -10,7 +11,7 @@ admin = [true,false]
 for user in 0..10
   user = User.create!({email: Faker::Internet.email, password:Faker::Internet.password, admin: admin.sample})
   if user.admin == false
-    @students << user.id
+    @students << user
   end
 end
 
@@ -43,12 +44,14 @@ day1_result = []
 loop do
   if @students.length % 2 != 0
     pair = @students.combination(3).to_a.sample
+    team = Team.create!(pair: pair)
     day1_result << pair
     pair.each do |student|
       @students.delete(student)
     end
   else
     pair = @students.combination(2).to_a.sample
+    team = Team.create!(pair: pair)
     day1_result << pair
     pair.each do |student|
       @students.delete(student)
@@ -58,6 +61,8 @@ loop do
   end
 end
 end
+
+team1 = Team.create(pair: [1,2,3,4])
 
 puts "*"*50
 print day1_result
