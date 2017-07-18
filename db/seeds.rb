@@ -5,15 +5,59 @@ student1 = User.create!({email: "student@supermatch.com", password: "student", a
 
 teacher1 = User.create!({email: "teacher@supermatch.com", password: "testtest", admin: true})
 
-
+@students = []
 admin = [true,false]
-for user in 0..15
+for user in 0..10
   user = User.create!({email: Faker::Internet.email, password:Faker::Internet.password, admin: admin.sample})
+  if user.admin == false
+    @students << user.id
+  end
 end
 
+#
+# divider = "*"*40
+#
+#   User.all.each do |user|
+#     puts "#{divider} \n #{user.email} - #{user.encrypted_password} - #{user.admin} \n"
+#   end
 
-divider = "*"*40
+puts "*"*30
+print @students
 
-  User.all.each do |user|
-    puts "#{divider} \n #{user.email} - #{user.encrypted_password} - #{user.admin} \n"
+puts "*"*30
+@students << student1.id
+print @students
+
+
+puts "*"*30
+pair = @students.combination(2).to_a.sample
+print pair
+
+puts "*"* 50
+puts @students.length
+
+
+
+
+day1_result = []
+loop do
+  if @students.length % 2 != 0
+    pair = @students.combination(3).to_a.sample
+    day1_result << pair
+    pair.each do |student|
+      @students.delete(student)
+    end
+  else
+    pair = @students.combination(2).to_a.sample
+    day1_result << pair
+    pair.each do |student|
+      @students.delete(student)
+    end
+  if @students.length == 0
+    break
   end
+end
+end
+
+puts "*"*50
+print day1_result
