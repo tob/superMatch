@@ -16,9 +16,17 @@
 <% end %>
 
 <h2>Teams </h2>
-  <ul class="list-group">
-    <% Team.all.each do |team| %>
-      <li class="list-group-item" id="<%= team.id %>"><span class="badge"></span><%= team.pair %>
-      </li>
-    <% end %>
+
+<he>Here is the Team Today</he>
+<% @teams.each do |team| %>
+<h4>Team:</h4>
+<ul><li>
+  <% team.pair.each do |member| %>
+    <%= member %>
+  <% end %>
+</li></ul>
+
+
+<% end %>
+<hr>
   </ul>

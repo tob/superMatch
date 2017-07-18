@@ -1,13 +1,19 @@
-class Team < ApplicationRecord
+class TeamsController < ApplicationController
+
+  def index
+    magic_match
+    @teams = Team.all
+  end
+
   def magic_match
 
     @students = []
     @teachers = []
     User.all.each do |user|
       if user.admin == false
-        @students << user
+        @students << user.id
       else
-        @teachers << user
+        @teachers << user.id
       end
     end
 
@@ -29,6 +35,8 @@ class Team < ApplicationRecord
         end
       end
     end
+
+
   end
 
 end
