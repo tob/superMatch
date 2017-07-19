@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @pair = Pair.new
+    @pairs = Pair.all
   end
 
   def edit

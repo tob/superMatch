@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170718202328) do
+ActiveRecord::Schema.define(version: 20170719092548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,10 +21,17 @@ ActiveRecord::Schema.define(version: 20170718202328) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "days", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pairs", force: :cascade do |t|
     t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "day_id"
+    t.index ["day_id"], name: "index_pairs_on_day_id"
   end
 
   create_table "pairs_users", id: false, force: :cascade do |t|
@@ -58,4 +65,5 @@ ActiveRecord::Schema.define(version: 20170718202328) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "pairs", "days"
 end
