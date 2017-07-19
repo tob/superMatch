@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170718102108) do
+ActiveRecord::Schema.define(version: 20170718202328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "date_forms", force: :cascade do |t|
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pairs", force: :cascade do |t|
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pairs_users", id: false, force: :cascade do |t|
+    t.bigint "pair_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["pair_id", "user_id"], name: "index_pairs_users_on_pair_id_and_user_id"
+    t.index ["user_id", "pair_id"], name: "index_pairs_users_on_user_id_and_pair_id"
+  end
 
   create_table "teams", force: :cascade do |t|
     t.string "pair", array: true

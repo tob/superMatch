@@ -1,24 +1,68 @@
-<h1>Show Teacher</h1>
-
-<ul class="list-group">
-<% User.all.each do |user| %>
-  <% if !user.admin == true %>
-
-    <li class="list-group-item" id="<%= user.id %>"><span class="badge"><a href="" class="upgrade_student">Upgrade</a></span><%= user.email %></li>
-
-    <% else %>
-    <% unless current_user.id == user.id %>
-    <li class="list-group-item list-group-item-info" id="<%= user.id %>"><span class="badge">
-        <a href="" class="downgrade_teacher">Downgrade</a></span><%= user.email %>
-    </li>
+<h2 class="sub-header">Manage users</h2>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#Id</th>
+        <th>Email</th>
+        <th>Partner</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% User.all.sort.each do |user| %>
+      <% if !user.admin == true %>
+        <tr id="<%= user.id %>">
+          <td><%= user.id %></td>
+          <td><%= user.email %></td>
+          <td></td>
+          <td><a href="" class="upgrade_student">Upgrade</a></td>
+        </tr>
+        <% else %>
+        <% unless current_user.id == user.id %>
+        <tr id="<%= user.id %>">
+          <td><%= user.id %></td>
+          <td><%= user.email %></td>
+          <td></td>
+          <td><a href="" class="downgrade_admin">Downgrade</a></td>
+        </tr>
+        <% end %>
+        <% end %>
     <% end %>
-    <% end %>
-<% end %>
+    </tbody>
+  </table>
+</div>
 
-<h2>Teams </h2>
-  <ul class="list-group">
-    <% Team.all.each do |team| %>
-      <li class="list-group-item" id="<%= team.id %>"><span class="badge"></span><%= team.pair %>
-      </li>
-    <% end %>
-  </ul>
+<h2 class="sub-header">Teams</h2>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#Id</th>
+        <th>Header</th>
+        <th>Header</th>
+        <th>Header</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Pair.all.each do |pair| %>
+      <tr>
+        <td><%= pair.id %></td>
+        <td><%= pair.users[0].id %></td>
+        <td><%= pair.date %></td>
+        <td>sit</td>
+      </tr>
+      <% end %>
+      <tr>
+        <td>1</td>
+        <td>Gigi</td>
+        <td>Pippo</td>
+        <td>Ugo</td>
+        <td>Josué</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<%= render 'pairs/form' %>
+<%= render 'pairs/show' %>

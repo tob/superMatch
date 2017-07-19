@@ -1,0 +1,2 @@
+class DateForm < ApplicationRecord
+end

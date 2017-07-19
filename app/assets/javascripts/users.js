@@ -1,5 +1,7 @@
 function upgradeStudent() {
+  event.preventDefault();
   var userId = $(this).parent().parent().attr('id');
+  var userName = $(this).parent().parent().attr('id');
   $.ajax({
     type: "PUT",
     url: "/api/users/" + userId + ".json",
@@ -7,15 +9,26 @@ function upgradeStudent() {
       user: { admin: true }
     }),
     contentType: "application/json",
-    dataType: "json"
+    dataType: "json",
+    complete: function() {
+        location.reload(true);
+      }
   })
   .done(function(data) {
     console.log(data);
-    submits();
+    // $(this).parent().parent().slideDown();
+    //  var downgradeLink = $('<td><a>Downgrade NEW</a></td>');
+    //   downgradeLink.addClass('downgrade_admin');
+    //  $(this).parent().append(downgradeLink);
+    //
+    //  $(this).remove;
+    //  submitDowngrade();
+
   });
 }
 
-function downgradeTeacher() {
+function downgradeAdmin() {
+  event.preventDefault();
   var userId = $(this).parent().parent().attr('id');
 
   $.ajax({
@@ -31,19 +44,19 @@ function downgradeTeacher() {
       }
   }).done(function(data) {
       console.log(data);
-      submits();
     });
 }
 
-function submits() {
-  $(".upgrade_student").bind('click', upgradeStudent);
-  $(".downgrade_teacher").bind('click', downgradeTeacher);
-};
 
 // $(document).on('turbolinks:load', function() {
 //     submits();
 // });
 
+
+// function.submits(){};
+
 $(document).ready(function(){
-  submits();
+
+    $(".upgrade_student").bind('click', upgradeStudent);
+    $(".downgrade_admin").bind('click', downgradeAdmin);
 });
