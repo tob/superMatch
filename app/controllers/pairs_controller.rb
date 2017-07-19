@@ -4,10 +4,10 @@ class PairsController < ApplicationController
   end
 
   def show
+    @pairs = Pair.all
   end
 
   def create
-    @pair = Pair.create(pair_params)
     magic_match
   end
 
