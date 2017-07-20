@@ -5,9 +5,17 @@ class UsersController < ApplicationController
   end
 
   def show
+
     @user = User.find(params[:id])
     @pair = Pair.new
-    @pairs = Pair.all
+    @all_pairs = Pair.all
+    @pairs =  []
+    @all_pairs.each do |pair|
+      if pair.date != nil
+        @pairs << pair
+      end
+    end
+
   end
 
   def edit
