@@ -13,16 +13,16 @@ for user in 1..19
   students << user
 end
 
-day1 = Day.create!
-
-pair1 = Pair.create!(date: nil , users: [students.sample,students.sample], day: day1)
-pair2 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[students.sample,students.sample], day: day1)
-pair3 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[students.sample,students.sample], day: day1)
-pair4 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[students.sample,students.sample], day: day1)
-pair5 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[students.sample,students.sample], day: day1)
-
-
-
+# day1 = Day.create!
+#
+# pair1 = Pair.create!(date: nil , users: [students.sample,students.sample], day: day1)
+# pair2 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[students.sample,students.sample], day: day1)
+# pair3 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[students.sample,students.sample], day: day1)
+# pair4 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[students.sample,students.sample], day: day1)
+# pair5 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[students.sample,students.sample], day: day1)
+#
+#
+#
 
 
 

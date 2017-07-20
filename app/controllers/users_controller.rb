@@ -6,7 +6,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
     @pair = Pair.new
+
     @all_pairs = Pair.all
     @pairs =  []
     @all_pairs.each do |pair|
