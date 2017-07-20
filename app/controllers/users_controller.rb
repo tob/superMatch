@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   end
 
   def show
-
     @user = User.find(params[:id])
     @pair = Pair.new
     @all_pairs = Pair.all

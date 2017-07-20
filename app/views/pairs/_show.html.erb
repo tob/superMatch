@@ -8,12 +8,12 @@
         <th>Header</th>
       </tr>
     </thead>
-    <% unless @pairs.length != 0  %>
+    <% if @pairs.length != 0  %>
     <tbody>
         <% @pairs.each do |pair| %>
         <tr>
           <td><%= pair.id %></td>
-          <td><%= pair.users[0].id %></td>
+          <td><%= pair.users.ids %></td>
           <td><%= pair.date %></td>
           <td>sit</td>
         </tr>
