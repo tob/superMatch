@@ -45,24 +45,10 @@
       </tr>
     </thead>
     <tbody>
-      <% Pair.all.each do |pair| %>
-      <tr>
-        <td><%= pair.id %></td>
-        <td><%= pair.users[0].id %></td>
-        <td><%= pair.date %></td>
-        <td>sit</td>
-      </tr>
-      <% end %>
-      <tr>
-        <td>1</td>
-        <td>Gigi</td>
-        <td>Pippo</td>
-        <td>Ugo</td>
-        <td>Josué</td>
-      </tr>
+      <%= @dates = [] %>
+
     </tbody>
   </table>
 </div>
 
 <%= render 'pairs/form' %>
-<%= render 'pairs/show' %>

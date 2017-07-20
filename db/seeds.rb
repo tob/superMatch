@@ -3,16 +3,16 @@ User.destroy_all
 
 
 student1 = User.create!({email: "student1@supermatch.com", password: "student", admin: false})
-student2 = User.create!({email: "student2@supermatch.com", password: "student", admin: false})
-student3 = User.create!({email: "student3@supermatch.com", password: "student", admin: false})
-student4 = User.create!({email: "student4@supermatch.com", password: "student", admin: false})
-student5 = User.create!({email: "student5@supermatch.com", password: "student", admin: false})
-student6 = User.create!({email: "student6@supermatch.com", password: "student", admin: false})
-student7 = User.create!({email: "student7@supermatch.com", password: "student", admin: false})
-student8 = User.create!({email: "student8@supermatch.com", password: "student", admin: false})
-student9 = User.create!({email: "student9@supermatch.com", password: "student", admin: false})
-student10 = User.create!({email: "student10@supermatch.com", password: "student", admin: false})
-student11 = User.create!({email: "student11@supermatch.com", password: "student", admin: false})
+# student2 = User.create!({email: "student2@supermatch.com", password: "student", admin: false})
+# student3 = User.create!({email: "student3@supermatch.com", password: "student", admin: false})
+# student4 = User.create!({email: "student4@supermatch.com", password: "student", admin: false})
+# student5 = User.create!({email: "student5@supermatch.com", password: "student", admin: false})
+# student6 = User.create!({email: "student6@supermatch.com", password: "student", admin: false})
+# student7 = User.create!({email: "student7@supermatch.com", password: "student", admin: false})
+# student8 = User.create!({email: "student8@supermatch.com", password: "student", admin: false})
+# student9 = User.create!({email: "student9@supermatch.com", password: "student", admin: false})
+# student10 = User.create!({email: "student10@supermatch.com", password: "student", admin: false})
+# student11 = User.create!({email: "student11@supermatch.com", password: "student", admin: false})
 
 teacher = User.create!({email: "teacher@supermatch.com", password: "testtest", admin: true})
 #
@@ -21,6 +21,31 @@ teacher = User.create!({email: "teacher@supermatch.com", password: "testtest", a
 # pair3 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[student5, student6])
 # pair4 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[student7, student8])
 # pair5 = Pair.create!(date: Faker::Date.between(15.days.ago, Date.today), users:[student9, student10,student11])
+
+for user in 3..15
+  user = User.create!({email: Faker::Internet.email, password:Faker::Internet.password, admin: false})
+end
+
+all_students = []
+if user.admin == false
+  all_students <<  user
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
