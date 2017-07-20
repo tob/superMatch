@@ -1,0 +1,51 @@
+<h3>Today match</h3>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Match</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.pairs.each do |pair| %>
+        <% if pair.date == Date.today %>
+        <tr>
+          <td><%= pair.date %></td>
+          <td>
+            <% pair.users.ids.each do |id| %>
+                <%= id unless id == @user.id %>
+              <% end  %>
+          </td>
+        </tr>
+        <% end %>
+    </tbody>
+    <% end %>
+  </table>
+</div>
+
+<h3>Past matches</h3>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Match</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.pairs.each do |pair| %>
+        <% if pair.date != nil && pair.date < Date.today %>
+        <tr>
+          <td><%= pair.date %></td>
+          <td>
+            <% pair.users.ids.each do |id| %>
+                <%= id unless id == @user.id %>
+              <% end  %>
+          </td>
+        </tr>
+        <% end %>
+    </tbody>
+    <% end %>
+  </table>
+</div>
