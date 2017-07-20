@@ -1,17 +1,40 @@
 class PairsController < ApplicationController
-  def index
-    @pairs = Pair.all
+  # def index
+  #   @pairs = Pair.all
+  # end
+  #
+  # def show
+  #   @pairs = Pair.all
+  # end
+  # #
+  # def new_create
+  #   generate_days_if_no_unassigned_days_left
+  #   @day = get_an_unassigned_day
+  #   assign_day_to_date @day
+  # end
+  def create
+    @days = Day.all
+    @unassigned_days = []
+
+    @days.each do |day|
+      if day.pairs.first.date == nil
+        @unassigned_days << day
+      end
+    end
+
+    @pair = Pair.new(pair_params)
+
+    @this_day = @unassigned_days.sample
+    @this_day.each do |pair|
+      pair.date = @pair.date
+    end
+
+    @this_day.save
+    
   end
 
-  def show
-    @pairs = Pair.all
-  end
 
-  def new_create
-    generate_days_if_no_unassigned_days_left
-    @day = get_an_unassigned_day
-    assign_day_to_date @day
-  end
+
 
   def create
     @period = Period.create
@@ -60,9 +83,5 @@ class PairsController < ApplicationController
    def pair_params
      params.require(:pair).permit(:date)
    end
-   #  def set_user
-   #    @user = User.find(params[:id])
-   #  end
-
 
 end
