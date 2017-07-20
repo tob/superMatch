@@ -1,0 +1,22 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#Id</th>
+        <th>Header</th>
+        <th>Header</th>
+        <th>Header</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @pairs.each do |pair| %>
+        <tr>
+          <td><%= pair.id %></td>
+          <td><%= pair.users[0].id %></td>
+          <td><%= pair.date %></td>
+          <td>sit</td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>
