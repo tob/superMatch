@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
 
-  def index
-
-  end
-
   def show
     @user = User.find(params[:id])
 
@@ -17,13 +13,13 @@ class UsersController < ApplicationController
       end
     end
 
+    @all_days = Day.all
+    @chosen_days = []
+    @all_days.each do |day|
+      if day.pairs.first.date != nil
+        @chosen_days << day
+      end
+    end
+    
   end
-
-  def edit
-
-  end
-
-  def update
-  end
-
 end

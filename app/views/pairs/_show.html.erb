@@ -2,20 +2,20 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>#Id</th>
-        <th>Header</th>
-        <th>Header</th>
-        <th>Header</th>
+        <th>Created Time</th>
+        <th>Date</th>
+        <th>Match</th>
       </tr>
     </thead>
     <% if @pairs.length != 0  %>
     <tbody>
-        <% @pairs.each do |pair| %>
+        <% @chosen_days.each do |day| %>
         <tr>
-          <td><%= pair.id %></td>
+          <td><%= day.pairs.first.updated_at %></td>
+          <td><%= day.pairs.first.date %></td>
+          <% day.pairs.each do |pair| %>
           <td><%= pair.users.ids %></td>
-          <td><%= pair.date %></td>
-          <td>sit</td>
+          <% end %>
         </tr>
         <% end %>
     </tbody>

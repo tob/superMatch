@@ -97,7 +97,13 @@ class PairsController < ApplicationController
       end
     end
 
-    if !date_already_present
+# admin is not allowed to generate a pair for the past days
+    valid_date = true
+    if @pair.date < Date.today
+      valid_date = false
+    end
+
+    if !date_already_present && valid_date
       @this_day = @unassigned_days.sample
 
       @this_day.pairs.each do |pair|
@@ -107,8 +113,9 @@ class PairsController < ApplicationController
 
       @this_day.save
     else
-      redirect_to user_path(@user.id),
-      notice: "The match of the day already exists!!!"
+      # how to make an alert to show that match of today exists!!!
+      # redirect_to user_path(@user.id),
+      # notice: "The match of the day already exists!!!"
     end
 
   end

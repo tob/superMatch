@@ -3,9 +3,9 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>#Id</th>
+        <th>User Id</th>
         <th>Email</th>
-        <th>Partner</th>
+        <th>Role</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -15,7 +15,7 @@
         <tr id="<%= user.id %>">
           <td><%= user.id %></td>
           <td><%= user.email %></td>
-          <td></td>
+          <td><%= user.admin ? "Admin" : "Student" %></td>
           <td><a href="" class="upgrade_student">Upgrade</a></td>
         </tr>
         <% else %>
