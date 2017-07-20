@@ -4,12 +4,11 @@ Rails.application.routes.draw do
 
     root 'users#index'
     resources :users
-    # resources :pairs
-    resources :periods do
-      resources :days do
-        resources :pairs
-      end
-    end
+    resources :pairs
+    resources :periods
+    resources :days
+
+
 
 
 

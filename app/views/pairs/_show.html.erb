@@ -8,6 +8,7 @@
         <th>Header</th>
       </tr>
     </thead>
+    <% unless @pairs.length != 0  %>
     <tbody>
         <% @pairs.each do |pair| %>
         <tr>
@@ -18,5 +19,6 @@
         </tr>
         <% end %>
     </tbody>
+    <% end %>
   </table>
 </div>

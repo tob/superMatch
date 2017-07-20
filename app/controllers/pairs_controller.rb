@@ -7,8 +7,19 @@ class PairsController < ApplicationController
     @pairs = Pair.all
   end
 
+  def new_create
+    generate_days_if_no_unassigned_days_left
+    @day = get_an_unassigned_day
+    assign_day_to_date @day
+  end
+
   def create
-    magic_match
+    @period = Period.create
+    @day = Day.create
+    @day.period_id = @period.id
+    @students = []
+
+    @users = User.all
   end
 
   def magic_match
@@ -23,6 +34,7 @@ class PairsController < ApplicationController
      if @students.length % 2 != 0
        pair = @students.combination(3).to_a.sample
        @pair = Pair.create(pair_params)
+       @pair.day_id = 1
        @pair.users = pair
        pair.each do |student|
          @students.delete(student)
@@ -31,6 +43,7 @@ class PairsController < ApplicationController
        pair = @students.combination(2).to_a.sample
        @pair = Pair.create(pair_params)
        @pair.users = pair
+       @pair.day_id =
        pair.each do |student|
          @students.delete(student)
         end
@@ -47,4 +60,9 @@ class PairsController < ApplicationController
    def pair_params
      params.require(:pair).permit(:date)
    end
+   #  def set_user
+   #    @user = User.find(params[:id])
+   #  end
+
+
 end
