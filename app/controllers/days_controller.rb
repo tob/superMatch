@@ -1,5 +1,5 @@
 class DaysController < ApplicationController
-
+  before_action :authenticate_user!
   def create
     @days = Day.all
     @unassigned_days = []

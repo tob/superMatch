@@ -1,5 +1,5 @@
 class PairsController < ApplicationController
-
+  before_action :authenticate_user!
   def get_unassigned_days
      @days = Day.all
      @unassigned_days = []
