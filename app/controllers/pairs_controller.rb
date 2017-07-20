@@ -8,12 +8,15 @@ class PairsController < ApplicationController
   end
 
   def create
-    magic_match
+    magic_matchrails d
   end
 
   def magic_match
+    @students = []
 
-    set_students
+    @users = User.all
+    @users.each do |user|
+      @students << user unless user.admin == true
     loop do
      if @students.length % 2 != 0
        pair = @students.combination(3).to_a.sample
@@ -42,13 +45,13 @@ class PairsController < ApplicationController
    def pair_params
      params.require(:pair).permit(:date)
    end
-
-   def set_students
-     @students = []
-
-     @users = User.all
-     @users.each do |user|
-       @students << user unless user.admin == true
-     end
-   end
+   #
+  #  def set_students
+  #    @students = []
+   #
+  #    @users = User.all
+  #    @users.each do |user|
+  #      @students << user unless user.admin == true
+  #    end
+  #  end
 end
