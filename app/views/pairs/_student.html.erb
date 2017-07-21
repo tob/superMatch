@@ -4,7 +4,9 @@
     <thead>
       <tr>
         <th>Date</th>
-        <th>Match</th>
+        <th>Match ID</th>
+        <th>First Name</th>
+        <th>Image</th>
       </tr>
     </thead>
     <tbody>
@@ -12,11 +14,13 @@
         <% if pair.date == Date.today %>
         <tr>
           <td><%= pair.date %></td>
-          <td>
-            <% pair.users.ids.each do |id| %>
-                <%= id unless id == @user.id %>
-              <% end  %>
-          </td>
+            <% pair.users.each do |user| %>
+              <% if user.id != @user.id %>
+                <td><%= user.id %></td>
+                <td><%= user.profile.first_name %></td>
+                <td><%= image_tag user.profile.image.thumbnail%></td>
+              <% end %>
+            <% end  %>
         </tr>
         <% end %>
     </tbody>
@@ -30,19 +34,23 @@
     <thead>
       <tr>
         <th>Date</th>
-        <th>Match</th>
+        <th>Match ID</th>
+        <th>First Name</th>
+        <th>Image</th>
       </tr>
     </thead>
     <tbody>
       <% @user.pairs.each do |pair| %>
-        <% if pair.date != nil && pair.date < Date.today %>
+      <% if pair.date != nil && pair.date < Date.today %>
         <tr>
           <td><%= pair.date %></td>
-          <td>
-            <% pair.users.ids.each do |id| %>
-                <%= id unless id == @user.id %>
-              <% end  %>
-          </td>
+            <% pair.users.each do |user| %>
+              <% if user.id != @user.id %>
+                <td><%= user.id %></td>
+                <td><%= user.profile.first_name %></td>
+                <td><%= image_tag user.profile.image.thumbnail%></td>
+              <% end %>
+            <% end  %>
         </tr>
         <% end %>
     </tbody>
