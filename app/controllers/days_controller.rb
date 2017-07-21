@@ -1,5 +1,6 @@
 class DaysController < ApplicationController
   before_action :authenticate_user!
+  # create functios is duplicate with the things in PairsController
   def create
     @days = Day.all
     @unassigned_days = []
@@ -14,7 +15,7 @@ class DaysController < ApplicationController
 
   end
 
-
+  #magic_match is not needed here, we generate 7 days in PairsController 
   def magic_match
     @students = []
 
