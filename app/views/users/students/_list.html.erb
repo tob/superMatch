@@ -1,0 +1,25 @@
+<% User.all.sort.each do |user| %>
+  <% if !user.admin == true %>
+    <tr id="<%= user.id %>">
+      <td><%= user.id %></td>
+      <td><%= image_tag user.profile.image.thumbnail %></td>
+      <td><%= user.profile.first_name %></td>
+      <td><%= user.profile.last_name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.admin ? "Admin" : "Student" %></td>
+      <td><a href="" class="upgrade_student">Upgrade</a></td>
+    </tr>
+    <% else %>
+    <% unless current_user.id == user.id %>
+    <tr id="<%= user.id %>" class="bg-info">
+      <td><%= user.id %></td>
+      <td><%= image_tag user.profile.image.thumbnail %></td>
+      <td><%= user.profile.first_name %></td>
+      <td><%= user.profile.last_name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.admin ? "Admin" : "Student" %></td>
+      <td><a href="" class="downgrade_admin">Downgrade</a></td>
+    </tr>
+    <% end %>
+    <% end %>
+<% end %>

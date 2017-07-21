@@ -1,44 +1,41 @@
-<h1>Welcome <%= current_user.profile.first_name %> ! You log in as admin.</h1>
-<h2 class="sub-header">Manage users</h2>
-<div class="table-responsive">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>User Id</th>
-        <th>Image</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-        <th>Role</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-    <% User.all.sort.each do |user| %>
-      <% if !user.admin == true %>
-        <tr id="<%= user.id %>">
-          <td><%= user.id %></td>
-          <td><%= image_tag user.profile.image.thumbnail %></td>
-          <td><%= user.profile.first_name %></td>
-          <td><%= user.profile.last_name %></td>
-          <td><%= user.email %></td>
-          <td><%= user.admin ? "Admin" : "Student" %></td>
-          <td><a href="" class="upgrade_student">Upgrade</a></td>
-        </tr>
-        <% else %>
-        <% unless current_user.id == user.id %>
-        <tr id="<%= user.id %>">
-          <td><%= user.id %></td>
-          <td><%= user.email %></td>
-          <td></td>
-          <td><a href="" class="downgrade_admin">Downgrade</a></td>
-        </tr>
-        <% end %>
-        <% end %>
-    <% end %>
-    </tbody>
-  </table>
-</div>
+<div class="row">
+  <div class="col-md-3">
+    Welcome
+    <h1><%= current_user.profile.first_name %></h1> You log in as admin.
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        Manage users
+      </div>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>User Id</th>
+                <th>Image</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody class="table-hover">
+            <%= render 'users/students/list' %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
 
 <%= render 'pairs/form' %>
 <%= render 'pairs/admin' %>
