@@ -42,7 +42,6 @@ function downgradeAdmin() {
     });
 }
 
-
 // $(document).on('turbolinks:load', function() {
 //     submits();
 // });
@@ -51,8 +50,6 @@ function downgradeAdmin() {
 // function.submits(){};
 
 $(document).ready(function(){
-
     $(".upgrade_student").bind('click', upgradeStudent);
-
     $(".downgrade_admin").bind('click', downgradeAdmin);
 });

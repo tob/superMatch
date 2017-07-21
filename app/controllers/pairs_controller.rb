@@ -1,9 +1,9 @@
 class PairsController < ApplicationController
   before_action :authenticate_user!
+
   def get_unassigned_days
      @days = Day.all
      @unassigned_days = []
-
      @days.each do |day|
        if day.pairs.first.date == nil
          @unassigned_days << day
@@ -82,7 +82,6 @@ class PairsController < ApplicationController
     get_unassigned_days
 # guarantee that unassigned_days is not empty
 # you generate another 7 days and put in the unassigned_days
-
     if @unassigned_days == []
       generate_7_days
       get_unassigned_days
@@ -113,9 +112,7 @@ class PairsController < ApplicationController
 
       @this_day.save
     else
-      # how to make an alert to show that match of today exists!!!
-      # redirect_to user_path(@user.id),
-      # notice: "The match of the day already exists!!!"
+      #  notice: "The match of the day already exists!!!"
     end
 
   end

@@ -7,9 +7,7 @@ Rails.application.routes.draw do
     resources :days
 
     namespace :api do
-      resources :days do
-          resources :pairs
-        end
+      resources :pairs
       resources :users
     end
 end
