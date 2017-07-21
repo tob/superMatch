@@ -1,4 +1,3 @@
-<h3>Today match</h3>
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
@@ -27,33 +26,40 @@
     <% end %>
   </table>
 </div>
-
-<h3>Past matches</h3>
-<div class="table-responsive">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Match ID</th>
-        <th>First Name</th>
-        <th>Image</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @user.pairs.each do |pair| %>
-      <% if pair.date != nil && pair.date < Date.today %>
-        <tr>
-          <td><%= pair.date %></td>
-            <% pair.users.each do |user| %>
-              <% if user.id != @user.id %>
-                <td><%= user.id %></td>
-                <td><%= user.profile.first_name %></td>
-                <td><%= image_tag user.profile.image.thumbnail%></td>
-              <% end %>
-            <% end  %>
-        </tr>
-        <% end %>
-    </tbody>
-    <% end %>
-  </table>
 </div>
+</div>
+</div>
+
+<div class="row">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3>Past matches</h3>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Match ID</th>
+          <th>First Name</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.pairs.each do |pair| %>
+        <% if pair.date != nil && pair.date < Date.today %>
+          <tr>
+            <td><%= pair.date %></td>
+              <% pair.users.each do |user| %>
+                <% if user.id != @user.id %>
+                  <td><%= user.id %></td>
+                  <td><%= user.profile.first_name %></td>
+                  <td><%= image_tag user.profile.image.thumbnail%></td>
+                <% end %>
+              <% end  %>
+          </tr>
+          <% end %>
+      </tbody>
+      <% end %>
+    </table>
+  </div>

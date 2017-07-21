@@ -1,2 +1,7 @@
-<h1>Welcome <%= current_user.profile.first_name %> ! You log in as student.</h1>
-<%= render 'pairs/student' %>
+<div class="col-md-9">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3>Today's match</h3>
+    </div>
+    <%= render 'pairs/student' %>
+  </div>
