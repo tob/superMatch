@@ -1,0 +1,125 @@
+<h2 class="sub-header">All Matches</h2>
+
+<h3>Today's Match <%= Date.today %></h3>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Created Time</th>
+        <th>Date</th>
+        <th>Pair1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+        <th>8</th>
+        <th>9</th>
+        <th>10</th>
+      </tr>
+    </thead>
+    <% if @pairs.length != 0  %>
+    <% @chosen_days.each do |day| %>
+    <tbody>
+      <% if day.pairs.first.date == Date.today %>
+        <tr>
+          <td><%= day.pairs.first.updated_at %></td>
+          <td><%= day.pairs.first.date %></td>
+          <% day.pairs.each do |pair| %>
+          <td><% pair.users.each do |user| %>
+                <%= user.profile.first_name %>
+                <br>
+              <% end %>
+          </td>
+          <% end %>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+    <% end %>
+  </table>
+</div>
+
+<h3>Future Matches</h3>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Created Time</th>
+        <th>Date</th>
+        <th>Pair1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+        <th>8</th>
+        <th>9</th>
+        <th>10</th>
+      </tr>
+    </thead>
+    <% if @pairs.length != 0  %>
+    <tbody>
+      <% @chosen_days.each do |day| %>
+        <% if day.pairs.first.date > Date.today %>
+          <tr>
+          <td><%= day.pairs.first.updated_at %></td>
+          <td><%= day.pairs.first.date %></td>
+          <% day.pairs.each do |pair| %>
+          <td><% pair.users.each do |user| %>
+                <%= user.profile.first_name %>
+                <br>
+              <% end %>
+          </td>
+          <% end %>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+    <% end %>
+  </table>
+</div>
+
+
+<h3>Past Matches</h3>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Created Time</th>
+        <th>Date</th>
+        <th>Pair1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+        <th>8</th>
+        <th>9</th>
+        <th>10</th>
+      </tr>
+    </thead>
+    <% if @pairs.length != 0  %>
+    <tbody>
+      <% @chosen_days.each do |day| %>
+        <% if day.pairs.first.date < Date.today %>
+          <tr>
+          <td><%= day.pairs.first.updated_at %></td>
+          <td><%= day.pairs.first.date %></td>
+          <% day.pairs.each do |pair| %>
+          <td><% pair.users.each do |user| %>
+                <%= user.profile.first_name %>
+                <br>
+              <% end %>
+          </td>
+          <% end %>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+    <% end %>
+  </table>
+</div>

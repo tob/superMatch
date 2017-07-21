@@ -4,21 +4,14 @@ Rails.application.routes.draw do
 
     root 'users#index'
     resources :users
-    # resources :pairs
-    resources :periods do
-      resources :days do
-        resources :pairs
-      end
-    end
+    resources :pairs
+    resources :days
 
-
-
+# Tobia, I deleted everything about Period, hahaha
     namespace :api do
-      resources :periods do
-        resources :days do
+      resources :days do
           resources :pairs
         end
-      end
       resources :users
     end
 end

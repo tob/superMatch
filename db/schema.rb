@@ -10,22 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170720125334) do
+ActiveRecord::Schema.define(version: 20170720230735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "date_forms", force: :cascade do |t|
-    t.datetime "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "days", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "period_id"
-    t.index ["period_id"], name: "index_days_on_period_id"
   end
 
   create_table "pairs", force: :cascade do |t|
@@ -43,15 +35,15 @@ ActiveRecord::Schema.define(version: 20170720125334) do
     t.index ["user_id", "pair_id"], name: "index_pairs_users_on_user_id_and_pair_id"
   end
 
-  create_table "periods", force: :cascade do |t|
+  create_table "profiles", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.string "image"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "teams", force: :cascade do |t|
-    t.string "pair", array: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -72,6 +64,6 @@ ActiveRecord::Schema.define(version: 20170720125334) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "days", "periods"
   add_foreign_key "pairs", "days"
+  add_foreign_key "profiles", "users"
 end

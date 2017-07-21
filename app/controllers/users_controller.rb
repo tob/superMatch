@@ -1,20 +1,25 @@
 class UsersController < ApplicationController
-
-  def index
-
-  end
-
+  before_action :authenticate_user!
   def show
     @user = User.find(params[:id])
+    @profile = current_user.profile
     @pair = Pair.new
-    @pairs = Pair.all
+
+    @all_pairs = Pair.all
+    @pairs =  []
+    @all_pairs.each do |pair|
+      if pair.date != nil
+        @pairs << pair
+      end
+    end
+
+    @all_days = Day.all
+    @chosen_days = []
+    @all_days.each do |day|
+      if day.pairs.first.date != nil
+        @chosen_days << day
+      end
+    end
+
   end
-
-  def edit
-
-  end
-
-end
-  def update
-
 end
