@@ -4,11 +4,13 @@
 
 <% else %>
 
-<% if current_user.admin == true %>
-  <%= render 'users/students/list' %>
-<% else %>
-  <%= render 'users/students/show' %>
-<% end %>
-<%= render 'profiles/show' %>
+<div class="jumbotron">
+  <h1>SuperMatch</h1>
+  <p>This is just a demo</p>
+  <%= link_to 'Go to your dashboard', user_path(current_user.id), class: "btn btn-primary btn-lg" %>
+</div>
+
+
+
 
 <% end %>
