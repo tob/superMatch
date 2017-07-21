@@ -11,7 +11,7 @@
 
   <% if current_user.admin == true %>
     <%= render 'users/teachers/show' %>
-  <div class="row">
+  <div class="row" id="pairs">
     <%= render 'pairs/form' %>
     <%= render 'pairs/admin' %>
   <% else %>
