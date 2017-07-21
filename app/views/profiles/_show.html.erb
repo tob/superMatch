@@ -1,21 +1,13 @@
-<h3>Your Profile</h3>
-<div class="table-responsive">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Address</th>
-        <th>Image</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= @profile.first_name %></td>
-        <td><%= @profile.last_name %></td>
-        <td><%= @profile.address %></td>
-        <th><%= image_tag @profile.image.thumbnail %></th>
-      </tr>
-    </tbody>
-  </table>
+<div class="thumbnail">
+  <%= image_tag @profile.image.thumbnail %>
+  <div class="caption">
+    <h3><%= @profile.first_name %> <%= @profile.last_name %></h3>
+    <p><%= @profile.address %></p>
+    <% if current_user.admin == true %>
+    <p>You have super powers, <a href="#pairs">go to pairs</a></p>
+    <% else %>
+    <p></p>
+    <% end %>
+
+  </div>
 </div>

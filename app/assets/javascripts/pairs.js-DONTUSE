@@ -1,0 +1,28 @@
+//
+//
+// function createPairs() {
+//   event.preventDefault();
+//   var inputDate = new Date(this.value);
+//   var newPair = {date: inputDate};
+//
+//   $.ajax({
+//     type: "POST",
+//     url: "/api/pairs.json",
+//     data: JSON.stringify({
+//       pair: newPair
+//     }),
+//     contentType: "application/json",
+//     dataType: "json",
+//     complete: function() {
+//         location.reload(true);
+//       }
+//   }).done(function(data) {
+//       console.log(data);
+//     });
+// }
+//
+//
+// $(document).ready(function(){
+//     $("#create_pairs").bind('click', createPairs);
+//     $('input[type="date"]').change(createPairs);
+// });

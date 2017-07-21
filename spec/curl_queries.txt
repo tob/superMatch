@@ -18,6 +18,13 @@ curl \
 -d '{"admin":"true"}' \
 http://localhost:3000/api/users/133
 
+curl \
+-i \
+-H "Accept: application/json" \
+-H "Content-type: application/json" \
+-X POST \
+-d '{"date":"2017-07-21"}' \
+http://localhost:3000/api/pairs.json
 
 
 curl \

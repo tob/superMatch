@@ -16,13 +16,8 @@ function upgradeStudent() {
   })
   .done(function(data) {
     console.log(data);
-    // $(this).parent().parent().slideDown();
-    //  var downgradeLink = $('<td><a>Downgrade NEW</a></td>');
-    //   downgradeLink.addClass('downgrade_admin');
-    //  $(this).parent().append(downgradeLink);
-    //
-    //  $(this).remove;
-    //  submitDowngrade();
+
+    $('#' + userId).addClass('.table-success');
 
   });
 }
@@ -47,7 +42,6 @@ function downgradeAdmin() {
     });
 }
 
-
 // $(document).on('turbolinks:load', function() {
 //     submits();
 // });
@@ -56,7 +50,6 @@ function downgradeAdmin() {
 // function.submits(){};
 
 $(document).ready(function(){
-
     $(".upgrade_student").bind('click', upgradeStudent);
     $(".downgrade_admin").bind('click', downgradeAdmin);
 });

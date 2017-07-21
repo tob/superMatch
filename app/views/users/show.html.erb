@@ -4,10 +4,19 @@
 
 <% else %>
 
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'profiles/show' %>
+  </div>
+
   <% if current_user.admin == true %>
     <%= render 'users/teachers/show' %>
+  <div class="row" id="pairs">
+    <%= render 'pairs/form' %>
+    <%= render 'pairs/admin' %>
   <% else %>
     <%= render 'users/students/show' %>
   <% end %>
-<%= render 'profiles/show' %>
+</div>
+
 <% end %>
