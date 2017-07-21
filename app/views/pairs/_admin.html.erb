@@ -14,7 +14,12 @@
           <td><%= day.pairs.first.updated_at %></td>
           <td><%= day.pairs.first.date %></td>
           <% day.pairs.each do |pair| %>
-          <td><%= pair.users.ids %></td>
+          <td><% pair.users.each do |user| %>
+                <!-- <%= user.id %> -->
+                <%= user.profile.first_name %>
+                <br>
+              <% end %>
+          </td>
           <% end %>
         </tr>
         <% end %>
